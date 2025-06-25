@@ -1,0 +1,164 @@
+/* Reset básico */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1b1b1b;
+  font-family: 'Georgia', serif;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  color: #ffd700;
+  font-size: 2.5rem;
+  margin: 1rem 0;
+}
+
+input,
+button {
+  font-family: inherit;
+}
+
+/* Container principal */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Formulário geral */
+.form {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+input[type='text'],
+input[type='email'] {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Botões */
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn.add {
+  background-color: #ffd700;
+  color: #1b1b1b;
+}
+
+.btn.edit {
+  background-color: #444;
+  color: #fff;
+}
+
+.btn.delete {
+  background-color: #a00;
+  color: #fff;
+}
+
+.btn.update {
+  background-color: #2d9;
+  color: #000;
+}
+
+.btn.cancel {
+  background-color: #555;
+  color: #fff;
+}
+
+/* Container de botões */
+.card-buttons,
+.form-buttons {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Lista de contatos */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Cartões de contato */
+.card {
+  background-color: #2a2a2a;
+  border-left: 6px solid #ffd700;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #ffd700;
+}
+
+.card p {
+  margin: 0.25rem 0;
+}
+
+/* Mensagem de vazio */
+.empty-message {
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Paginação */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.pagination button {
+  background-color: #444;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  font-weight: bold;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Animação */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
