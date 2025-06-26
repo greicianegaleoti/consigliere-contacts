@@ -1,41 +1,38 @@
-# Consigliere Contacts 
+# Consigliere Contacts
 
-Aplicação web desenvolvida com React + JSON Server para gerenciamento de contatos estratégicos da "Família". Inspirado no universo de The Godfather, com estilo visual escuro e clássico.
+A React-based web CRM designed for managing strategic contacts within the Corleone family's inner circle — including trusted allies, enforcers, rivals, and other crime family figures.
 
-Deploy online (em breve):  
-https://consigliere-contacts.netlify.app/
+Elegant, themed UI — dark background, golden highlights (#ffd700) and fade-in animations.
 
-API local (via JSON Server):  
-http://localhost:3001/contacts
-
----
-
-## Tecnologias utilizadas
-
-- ReactJS (Vite)
-- JSON Server (Fake API)
-- JavaScript (ES6+)
-- CSS customizado (tema escuro)
-- Axios (para requisições HTTP)
+Live preview:
+[(Deployment link here when available)](https://consigliere-contacts.netlify.app)
 
 ---
 
-## Funcionalidades
+## Tech Stack
 
-- [x] Listagem de contatos
-- [x] Criação de novos contatos
-- [x] Edição inline de contatos existentes
-- [x] Exclusão com confirmação
-- [x] Filtro de busca por nome
-- [x] Paginação simples
-- [x] Estilo visual responsivo e coerente com os outros projetos
+- ReactJS (with Vite)
+- CSS (modular styling with dark theme and gold accent)
+- Axios (for API integration)
+- JSON Server (mock API backend)
+- Responsive layout & animations
 
 ---
 
-## Como rodar localmente
+## Features
 
-1. Clone este repositório:
+- Strategic contact management (not family-related)
+- Add, edit and delete contacts
+- Search by name (case-insensitive)
+- Pagination with dynamic updates
+- Contact cards with clean animations and highlighted role tags
+
+---
+
+## Getting Started (Local Setup)
+
+1. Clone the repository:
 
 ```bash
-git clone https://github.com/seu-usuario/consigliere-contacts.git
+git clone https://github.com/your-username/consigliere-contacts.git
 cd consigliere-contacts
