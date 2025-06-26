@@ -1,38 +1,41 @@
 # Consigliere Contacts
 
-A React-based web CRM designed for managing strategic contacts within the Corleone family's inner circle — including trusted allies, enforcers, rivals, and other crime family figures.
+A stylish web CRM (mini agenda) for managing the Corleone family’s strategic allies. Built with ReactJS and JSON Server.
 
-Elegant, themed UI — dark background, golden highlights (#ffd700) and fade-in animations.
+Live Demo:
+https://consigliere-contacts.netlify.app/
 
-Live preview:
-[(Deployment link here when available)](https://consigliere-contacts.netlify.app)
+Fake API Endpoint (JSON Server):
+http://localhost:3001/contacts
 
 ---
 
 ## Tech Stack
 
-- ReactJS (with Vite)
-- CSS (modular styling with dark theme and gold accent)
-- Axios (for API integration)
-- JSON Server (mock API backend)
-- Responsive layout & animations
+- ReactJS (Vite)
+- CSS3 with animation and dark/golden theme
+- Axios for API requests
+- JSON Server as fake backend
+- Deploy: Netlify (front-end)
 
 ---
 
 ## Features
 
-- Strategic contact management (not family-related)
 - Add, edit and delete contacts
-- Search by name (case-insensitive)
-- Pagination with dynamic updates
-- Contact cards with clean animations and highlighted role tags
+- Search by name (live filtering)
+- Pagination (5 contacts per page)
+- Stylish dark interface with golden accent
+- Loading animation while fetching data
+- Fully responsive layout (mobile-friendly)
+- Custom favicon
 
 ---
 
-## Getting Started (Local Setup)
+## Getting Started (Local)
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/consigliere-contacts.git
+git clone https://github.com/greicianegaleoti/consigliere-contacts.git
 cd consigliere-contacts

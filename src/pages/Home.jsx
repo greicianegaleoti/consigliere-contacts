@@ -1,7 +1,9 @@
+// src/pages/Home.jsx
 import React, { useEffect, useState, useMemo } from 'react';
 import ContactForm from '../components/ContactForm';
 import ContactCard from '../components/ContactCard';
 import EditContactForm from '../components/EditContactForm';
+import Loader from '../components/Loader';
 import api from '../services/api';
 
 function Home() {
@@ -51,7 +53,7 @@ function Home() {
 
   return (
     <div className="container">
-      <h1>Consigliere Contacts</h1>
+      <h1 className="title">Consigliere Contacts</h1>
 
       <input
         type="text"
@@ -60,6 +62,15 @@ function Home() {
         onChange={e => {
           setSearch(e.target.value);
           setCurrentPage(1);
+        }}
+        style={{
+          padding: '0.5rem',
+          marginBottom: '1rem',
+          width: '100%',
+          maxWidth: '400px',
+          display: 'block',
+          marginLeft: 'auto',
+          marginRight: 'auto'
         }}
       />
 
@@ -74,7 +85,7 @@ function Home() {
       )}
 
       {paginatedContacts.length === 0 ? (
-        <p className="empty-message">No contacts found.</p>
+        <Loader />
       ) : (
         <div className="contact-list">
           {paginatedContacts.map(contact => (
@@ -86,11 +97,11 @@ function Home() {
             />
           ))}
 
-          <div className="pagination">
+          <div className="pagination" style={{ textAlign: 'center', marginTop: '1rem' }}>
             <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
               Prev
             </button>
-            <span style={{ color: '#fff', lineHeight: '2rem' }}>
+            <span style={{ margin: '0 1rem', color: '#fff', lineHeight: '2rem' }}>
               Page {currentPage} of {totalPages}
             </span>
             <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
