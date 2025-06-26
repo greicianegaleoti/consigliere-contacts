@@ -32,6 +32,15 @@ http://localhost:3001/contacts
 
 ---
 
+## Preview
+
+
+
+![screenshot](./screenshot1.png) 
+
+
+---
+
 ## Getting Started (Local)
 
 1. Clone the repository:
