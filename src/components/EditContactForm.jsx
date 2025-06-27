@@ -1,3 +1,4 @@
+// src/components/EditContactForm.jsx
 import React, { useState } from 'react';
 import api from '../services/api';
 
@@ -5,7 +6,8 @@ function EditContactForm({ contact, onUpdate, onCancel }) {
   const [form, setForm] = useState({
     name: contact.name,
     role: contact.role,
-    location: contact.location,
+    email: contact.email,
+    location: contact.location
   });
 
   const handleChange = (e) => {
@@ -35,6 +37,13 @@ function EditContactForm({ contact, onUpdate, onCancel }) {
         name="role"
         placeholder="Role or Title"
         value={form.role}
+        onChange={handleChange}
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email address"
+        value={form.email}
         onChange={handleChange}
       />
       <input

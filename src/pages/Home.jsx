@@ -16,7 +16,7 @@ function Home() {
   useEffect(() => {
     api.get('/contacts')
       .then(response => setContacts(response.data))
-      .catch(error => console.error('Erro ao buscar contatos:', error));
+      .catch(error => console.error('Error fetching contacts:', error));
   }, []);
 
   const addContact = (newContact) => {
@@ -24,12 +24,20 @@ function Home() {
   };
 
   const updateContact = (updated) => {
-    setContacts(prev => prev.map(c => c.id === updated.id ? updated : c));
-    setEditingContact(null);
+    api.put(`/contacts/${updated.id}`, updated)
+      .then(() => {
+        setContacts(prev => prev.map(c => c.id === updated.id ? updated : c));
+        setEditingContact(null);
+      })
+      .catch(err => console.error('Update failed:', err));
   };
 
   const deleteContact = (id) => {
-    setContacts(prev => prev.filter(c => c.id !== id));
+    api.delete(`/contacts/${id}`)
+      .then(() => {
+        setContacts(prev => prev.filter(c => c.id !== id));
+      })
+      .catch(err => console.error('Delete failed:', err));
   };
 
   const filteredContacts = useMemo(() => {

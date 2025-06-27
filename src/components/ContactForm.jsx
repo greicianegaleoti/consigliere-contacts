@@ -1,87 +1,75 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import api from '../services/api';
 
-function EditContactForm({ contact, onUpdate, onCancel }) {
-  const [formData, setFormData] = useState({
+function ContactForm({ onAdd }) {
+  const [form, setForm] = useState({
     name: '',
     role: '',
     email: '',
     location: ''
   });
 
-  useEffect(() => {
-    if (contact) {
-      setFormData({
-        name: contact.name || '',
-        role: contact.role || '',
-        email: contact.email || '',
-        location: contact.location || ''
-      });
-    }
-  }, [contact]);
-
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.role || !formData.email) {
-      alert('Please fill in all required fields.');
+
+    // Simple validation
+    if (!form.name || !form.role || !form.email || !form.location) {
+      alert('Please fill in all fields.');
       return;
     }
 
-    try {
-      const response = await api.put(`/contacts/${contact.id}`, formData);
-      onUpdate && onUpdate(response.data);
-    } catch (error) {
-      console.error('Erro ao atualizar contato:', error);
-    }
+    api.post('/contacts', form)
+      .then(response => {
+        onAdd(response.data);
+        setForm({
+          name: '',
+          role: '',
+          email: '',
+          location: ''
+        });
+      })
+      .catch(error => {
+        console.error('Error creating contact:', error);
+      });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form">
-      <h2>Edit Contact</h2>
+    <form className="form" onSubmit={handleSubmit}>
       <input
         type="text"
         name="name"
-        placeholder="Name*"
-        value={formData.name}
+        placeholder="Full name"
+        value={form.name}
         onChange={handleChange}
-        required
       />
       <input
         type="text"
         name="role"
-        placeholder="Role*"
-        value={formData.role}
+        placeholder="Role or Title"
+        value={form.role}
         onChange={handleChange}
-        required
       />
       <input
         type="email"
         name="email"
-        placeholder="Email*"
-        value={formData.email}
+        placeholder="Email address"
+        value={form.email}
         onChange={handleChange}
-        required
       />
       <input
         type="text"
         name="location"
         placeholder="Location"
-        value={formData.location}
+        value={form.location}
         onChange={handleChange}
       />
-      <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-        <button type="submit">Update</button>
-        <button type="button" onClick={onCancel} style={{ backgroundColor: '#999' }}>
-          Cancel
-        </button>
-      </div>
+      <button type="submit">Add Contact</button>
     </form>
   );
 }
 
-export default EditContactForm;
+export default ContactForm;
