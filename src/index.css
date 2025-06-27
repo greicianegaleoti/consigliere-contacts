@@ -1,129 +1,102 @@
-/* src/index.css */
+/* Global styles */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Georgia', serif;
-  background-color: #121212;
+  background-color: #111;
   color: #fff;
+  display: flex;
+  justify-content: center;
   min-height: 100vh;
 }
 
-/* Container principal */
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-/* Título principal */
-.title {
-  font-size: 2.5rem;
+/* Page title */
+h1 {
   color: #ffd700;
   text-align: center;
-  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Formulário */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  background-color: #1e1e1e;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
-  margin-bottom: 2rem;
-}
-
-input,
-textarea {
+/* Search input */
+input[type="text"] {
   padding: 0.5rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+  margin: 1rem auto;
+  display: block;
   font-size: 1rem;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
 }
 
-input:focus,
-textarea:focus {
-  outline: 2px solid #ffd700;
+input::placeholder {
+  color: #aaa;
 }
 
+/* Buttons */
 button {
   background-color: #ffd700;
-  color: #1e1e1e;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
+  color: #000;
   border: none;
-  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #e6c200;
+  transform: scale(1.05);
 }
 
-/* Lista de contatos */
+/* Page container */
+.container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Contact list layout */
 .contact-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   gap: 1rem;
-  list-style: none;
-  padding: 0;
 }
 
-/* Card de contato */
+/* Contact card styling */
 .contact-card {
-  background-color: #1e1e1e;
+  background-color: #222;
   padding: 1rem;
-  border-radius: 10px;
-  width: 280px;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.15);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
   transition: transform 0.3s ease;
-  animation: fadeInUp 0.5s ease forwards;
-  opacity: 0;
 }
 
 .contact-card:hover {
-  transform: scale(1.03);
+  transform: translateY(-5px);
 }
 
-/* Animação de entrada */
-@keyframes fadeInUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.contact-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #ffd700;
 }
 
-/* Ações (editar, excluir) */
-.actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.5rem;
-}
-
-.actions button {
-  flex: 1;
-  margin: 0 0.25rem;
-}
-
-/* Mensagem de lista vazia */
+/* Empty state message */
 .empty-message {
   text-align: center;
-  color: #ccc;
   font-style: italic;
+  margin-top: 2rem;
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-  .contact-list {
-    flex-direction: column;
-    align-items: center;
-  }
+/* Pagination controls */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
 }
