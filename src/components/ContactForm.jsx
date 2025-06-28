@@ -1,3 +1,4 @@
+// src/components/ContactForm.jsx
 import React, { useState } from 'react';
 import api from '../services/api';
 
@@ -6,7 +7,8 @@ function ContactForm({ onAdd }) {
     name: '',
     role: '',
     email: '',
-    location: ''
+    location: '',
+    notes: ''
   });
 
   const handleChange = (e) => {
@@ -16,9 +18,8 @@ function ContactForm({ onAdd }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Simple validation
     if (!form.name || !form.role || !form.email || !form.location) {
-      alert('Please fill in all fields.');
+      alert('Please fill in all required fields.');
       return;
     }
 
@@ -29,7 +30,8 @@ function ContactForm({ onAdd }) {
           name: '',
           role: '',
           email: '',
-          location: ''
+          location: '',
+          notes: ''
         });
       })
       .catch(error => {
@@ -67,6 +69,12 @@ function ContactForm({ onAdd }) {
         value={form.location}
         onChange={handleChange}
       />
+      <textarea
+        name="notes"
+        placeholder="Notes (optional)"
+        value={form.notes}
+        onChange={handleChange}
+      ></textarea>
       <button type="submit">Add Contact</button>
     </form>
   );

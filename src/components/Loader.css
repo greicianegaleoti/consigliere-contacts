@@ -1,31 +1,25 @@
-/* Loader container */
+/* src/components/Loader.css */
 .loader-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
 }
 
-/* Spinning animation */
 .loader {
   width: 40px;
   height: 40px;
+  margin: 0 auto;
   border: 4px solid #ffd700;
   border-top: 4px solid transparent;
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin-bottom: 1rem;
 }
 
-/* Loader text */
 .loader-text {
+  margin-top: 1rem;
   color: #ffd700;
-  font-size: 1rem;
   font-style: italic;
 }
 
-/* Spin keyframes */
 @keyframes spin {
   to {
     transform: rotate(360deg);

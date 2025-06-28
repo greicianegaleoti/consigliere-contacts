@@ -2,14 +2,6 @@
   "contacts": [
     {
       "id": 1,
-      "name": "Tom Hagen",
-      "role": "Consigliere",
-      "location": "New York",
-      "email": "t.hagen@corleonefam.org",
-      "notes": "Legal and political advisor. Trusted by Don Vito."
-    },
-    {
-      "id": 2,
       "name": "Peter Clemenza",
       "role": "Caporegime",
       "location": "Brooklyn",
@@ -17,7 +9,7 @@
       "notes": "Old-school capo. Handles collections and enforcers."
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "Salvatore Tessio",
       "role": "Caporegime",
       "location": "Queens",
@@ -25,7 +17,7 @@
       "notes": "Efficient but watchful. Political ties in Brooklyn."
     },
     {
-      "id": 4,
+      "id": 3,
       "name": "Luca Brasi",
       "role": "Enforcer",
       "location": "Bronx",
@@ -33,7 +25,7 @@
       "notes": "Don Vito's personal enforcer. Fearsome reputation."
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Rocco Lampone",
       "role": "Soldier",
       "location": "New York",
@@ -41,7 +33,7 @@
       "notes": "Rising soldier. Loyal and effective."
     },
     {
-      "id": 6,
+      "id": 5,
       "name": "Al Neri",
       "role": "Soldier",
       "location": "New Jersey",
@@ -49,15 +41,15 @@
       "notes": "Ex-cop turned enforcer. Michael's personal security."
     },
     {
-      "id": 7,
-      "name": "Frank Pentangeli",
-      "role": "Caporegime",
-      "location": "Nevada",
-      "email": "f.pentangeli@corleonefam.org",
-      "notes": "Took over Clemenza’s territory. Temperamental."
+      "id": 6,
+      "name": "Carmine Cuneo",
+      "role": "Don - Cuneo family",
+      "location": "Bronx",
+      "email": "c.cuneo@cuneo.com",
+      "notes": "'The Milkman'. His criminal activities had never been suspected by the police thanks to good nature. "
     },
     {
-      "id": 8,
+      "id": 7,
       "name": "Johnny Fontane",
       "role": "Ally — Entertainer",
       "location": "Hollywood",
@@ -65,7 +57,7 @@
       "notes": "Strategic media influence. Opens key doors."
     },
     {
-      "id": 9,
+      "id": 8,
       "name": "Virgil Sollozzo",
       "role": "Enemy — Narcotics Dealer",
       "location": "New York",
@@ -73,7 +65,7 @@
       "notes": "Heavily armed, politically connected. High threat."
     },
     {
-      "id": 10,
+      "id": 9,
       "name": "Emilio Barzini",
       "role": "Don — Barzini Family",
       "location": "Manhattan",
@@ -81,7 +73,7 @@
       "notes": "Major rival. Strategic and calculating."
     },
     {
-      "id": 11,
+      "id": 10,
       "name": "Philip Tattaglia",
       "role": "Don — Tattaglia Family",
       "location": "Brooklyn",
@@ -89,23 +81,23 @@
       "notes": "Weak without Sollozzo. Minor threat alone."
     },
     {
+      "id": 11,
+      "name": "Victor Stracci",
+      "role": "Don - Stracci family",
+      "location": "New Jersey",
+      "email": "v.stracci@Stracci.biz",
+      "notes": " Deals with prostitution. Family is weaker than the Tattaglias."
+    },
+    {
       "id": 12,
-      "name": "Carmine Rosato",
-      "role": "Rival — Rosato Brothers",
-      "location": "Bronx",
-      "email": "c.rosato@rosatobros.biz",
-      "notes": "Disrespectful. Attempts to seize Bronx operations."
+      "name": "Amerigo Bonasera",
+      "role": "Undertaker",
+      "location": "New York",
+      "email": "contact@bonaseras.com",
+      "notes": "Vito's wife Carmela is a godmother to Bonasera's daughter Maria. He ran a funeral parlour"
     },
     {
       "id": 13,
-      "name": "Senator Pat Geary",
-      "role": "Ally — Corrupt Politician",
-      "location": "Nevada / Washington",
-      "email": "sen.geary@gov.us",
-      "notes": "Under control due to scandal. Valuable leverage."
-    },
-    {
-      "id": 14,
       "name": "Hyman Roth",
       "role": "Investor — International Operations",
       "location": "Miami",
@@ -113,7 +105,7 @@
       "notes": "Key for offshore deals. Not fully trusted."
     },
     {
-      "id": 15,
+      "id": 14,
       "name": "Willie Cicci",
       "role": "Soldier",
       "location": "New York",

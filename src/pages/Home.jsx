@@ -11,12 +11,23 @@ function Home() {
   const [editingContact, setEditingContact] = useState(null);
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
   const itemsPerPage = 5;
 
   useEffect(() => {
+    setIsLoading(true);
     api.get('/contacts')
-      .then(response => setContacts(response.data))
-      .catch(error => console.error('Error fetching contacts:', error));
+      .then(response => {
+        setTimeout(() => {
+          setContacts(response.data);
+          setIsLoading(false);
+        }, 3000);
+      })
+      .catch(error => {
+        console.error('Error fetching contacts:', error);
+        setIsLoading(false);
+      });
   }, []);
 
   const addContact = (newContact) => {
@@ -25,26 +36,25 @@ function Home() {
 
   const updateContact = (updated) => {
     api.put(`/contacts/${updated.id}`, updated)
-      .then(() => {
-        setContacts(prev => prev.map(c => c.id === updated.id ? updated : c));
+      .then(response => {
+        setContacts(prev =>
+          prev.map(c => (c.id === updated.id ? response.data : c))
+        );
         setEditingContact(null);
-      })
-      .catch(err => console.error('Update failed:', err));
+      });
   };
 
   const deleteContact = (id) => {
-    api.delete(`/contacts/${id}`)
-      .then(() => {
-        setContacts(prev => prev.filter(c => c.id !== id));
-      })
-      .catch(err => console.error('Delete failed:', err));
+    setContacts(prev => prev.filter(c => c.id !== id));
   };
 
   const filteredContacts = useMemo(() => {
-    return contacts.filter(c =>
+    const filtered = contacts.filter(c =>
       c.name.toLowerCase().includes(search.toLowerCase())
     );
-  }, [contacts, search]);
+    setNotFound(!isLoading && search.length > 0 && filtered.length === 0);
+    return filtered;
+  }, [contacts, search, isLoading]);
 
   const totalPages = Math.ceil(filteredContacts.length / itemsPerPage);
 
@@ -92,8 +102,12 @@ function Home() {
         />
       )}
 
-      {paginatedContacts.length === 0 ? (
+      {isLoading ? (
         <Loader />
+      ) : notFound ? (
+        <p className="empty-message">Contact not found.</p>
+      ) : paginatedContacts.length === 0 ? (
+        <p className="empty-message">No contacts found.</p>
       ) : (
         <div className="contact-list">
           {paginatedContacts.map(contact => (

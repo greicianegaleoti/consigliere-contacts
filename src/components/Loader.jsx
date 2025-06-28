@@ -1,3 +1,4 @@
+// src/components/Loader.jsx
 import React from 'react';
 import './Loader.css';
 

@@ -7,7 +7,8 @@ function EditContactForm({ contact, onUpdate, onCancel }) {
     name: contact.name,
     role: contact.role,
     email: contact.email,
-    location: contact.location
+    location: contact.location,
+    notes: contact.notes || ''
   });
 
   const handleChange = (e) => {
@@ -20,6 +21,9 @@ function EditContactForm({ contact, onUpdate, onCancel }) {
     api.put(`/contacts/${contact.id}`, form)
       .then(response => {
         onUpdate(response.data);
+      })
+      .catch(err => {
+        console.error('Error updating contact:', err);
       });
   };
 
@@ -53,9 +57,15 @@ function EditContactForm({ contact, onUpdate, onCancel }) {
         value={form.location}
         onChange={handleChange}
       />
+      <textarea
+        name="notes"
+        placeholder="Notes"
+        value={form.notes}
+        onChange={handleChange}
+      ></textarea>
       <div className="form-buttons">
-        <button className="btn update" type="submit">Update</button>
-        <button className="btn cancel" type="button" onClick={onCancel}>Cancel</button>
+        <button type="submit">Update</button>
+        <button type="button" onClick={onCancel}>Cancel</button>
       </div>
     </form>
   );
